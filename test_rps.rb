@@ -34,4 +34,11 @@ class RPSTestCase < Test::Unit::TestCase
     turn_person = rps_game([[:scissors], [:scissors]])
     assert_equal(turn_person, [-1, -1])
   end
+  
+  def test_no_player
+    turn, person = rps_game([])
+    assert_equal(turn,-1)
+    assert_equal(person,-1)
+  end
+  
 end
