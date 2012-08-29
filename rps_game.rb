@@ -1,6 +1,6 @@
-def rps_game(players)
+def rps_game(players, turn = 0)
   rockPlayers = []; scissorsPlayers = []; paperPlayers = [];
-  turn = 0
+  
   players.size.times do |i|
     hand = players[i].shift
     if hand == :rock
@@ -20,5 +20,7 @@ def rps_game(players)
     return [turn,scissorsPlayers[0]]
   elsif (paperPlayers.size == 1 && scissorsPlayers.size == 0) #paper win rock
     return [turn,paperPlayers[0]]
+  else 
+    return rps_game(players, turn = turn + 1) #draw, next game
   end
 end
