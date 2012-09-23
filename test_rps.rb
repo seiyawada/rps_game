@@ -51,8 +51,13 @@ class RPSTestCase < Test::Unit::TestCase
     assert_equal(turn_person, [1, 0])
 
     #Trun 2, player 0 win other players
-    turn_person = rps_game([[:rock, :rock, :rock], [:scissors, :scissors],[:paper, :paper]])
+    turn_person = rps_game([[:rock, :rock, :rock], [:scissors, :scissors], [:paper, :paper]])
     assert_equal(turn_person, [2, 0])
+    
+    #Trun 1, player 0 lose other players
+    #Turn 3, player 1 win other players
+    turn_person = rps_game([[:rock, :rock, :rock], [:scissors, :paper, :rock], [:paper, :paper, :scissors], [:paper, :paper, :scissors]])
+    assert_equal(turn_person, [3, 1])
   end
   
 end
